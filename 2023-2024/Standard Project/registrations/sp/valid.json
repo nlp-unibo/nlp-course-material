@@ -1,0 +1,15 @@
+[
+    "name:callback--tags:['early_stopping', 'th']--namespace:sp",
+    "name:data_loader--tags:['task3']--namespace:sp",
+    "name:metrics--tags:['emotions_f1', 'triggers_f1']--namespace:sp",
+    "name:metrics--tags:['emotions_f1']--namespace:sp",
+    "name:metrics--tags:['triggers_f1']--namespace:sp",
+    "name:model--tags:['baseline', 'bert']--namespace:sp",
+    "name:processor--tags:['bert', 'emotion', 'th']--namespace:sp",
+    "name:processor--tags:['bert']--namespace:sp",
+    "name:processor--tags:['classifier', 'th']--namespace:sp",
+    "name:processor--tags:['data', 'th']--namespace:sp",
+    "name:processor--tags:['emotion']--namespace:sp",
+    "name:processor--tags:['routine', 'step']--namespace:sp",
+    "name:routine--tags:['task3']--namespace:sp"
+]
