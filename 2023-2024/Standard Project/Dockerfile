@@ -10,12 +10,14 @@ ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/incl
 ENV CUDA_LAUNCH_BLOCKING=1
 ENV TF_FORCE_GPU_ALLOW_GROWTH='true'
 
-COPY "./Standard Project" "/Standard Project"
-RUN pip3 install -r "/Standard Project/requirements.txt"
-WORKDIR "/Standard Project"
+COPY . /sp
+RUN pip3 install -r /sp/requirements.txt
+WORKDIR /sp
 
-ENV GENSIM_DATA_DIR="/Standard Project/gensim-data/"
-ENV NUMBA_CACHE_DIR="/Standard Project/numba/"
+ENV GENSIM_DATA_DIR="/sp/gensim-data/"
+ENV NUMBA_CACHE_DIR="/sp/numba/"
+
+ENV PYTHONPATH="$PYTHONPATH:/sp/"
 
 # Project-specific dependencies
 RUN pip3 install -r requirements.txt
