@@ -61,7 +61,7 @@ class Task3Loader(DataLoader):
                          tags={'label'},
                          description='Per utterance emotion labels.')
         return_field.add(name='triggers',
-                         value=data.triggers.values,
+                         value=[np.nan_to_num(seq) for seq in data.triggers.values],
                          type_hint=Iterable[List[float]],
                          tags={'label'},
                          description='Per utterance trigger labels.')

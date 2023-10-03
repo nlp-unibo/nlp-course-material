@@ -159,3 +159,5 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 /2023-2024/Tutorial 1/Datasets/
+/2023-2024/Standard Project/registrations/
+/2023-2024/Standard Project/logging/

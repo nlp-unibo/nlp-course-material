@@ -36,7 +36,7 @@ class BERTBaselineConfig(NetworkConfig):
                    description='Optimizer to use for network weights update')
         config.add(name='optimizer_args',
                    value={
-                       "lr": 5e-05,
+                       "lr": 1e-03,
                        "weight_decay": 1e-05
                    },
                    type_hint=Dict,

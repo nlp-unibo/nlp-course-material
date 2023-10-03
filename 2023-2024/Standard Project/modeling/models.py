@@ -16,6 +16,10 @@ class M_BERTBaseline(th.nn.Module):
         self.bert = BertModel.from_pretrained(pretrained_model_name_or_path=preloaded_model_name,
                                               config=bert_config)
 
+        for module in self.bert.modules():
+            for param in module.parameters():
+                param.requires_grad = False
+
         self.emotion_clf = th.nn.Linear(out_features=emotion_classes,
                                         in_features=bert_config.hidden_size)
 
@@ -38,7 +42,7 @@ class M_BERTBaseline(th.nn.Module):
 
         # [bs * # utterances, d]
         bert_encoding = self.bert(input_ids=utterance_ids.view(-1, utterance_ids.shape[-1]),
-                                  attention_mask=utterance_mask.view(-1, utterance_mask.shape[-1]))
+                                  attention_mask=utterance_mask.view(-1, utterance_mask.shape[-1])).pooler_output
 
         # [bs, # utterances, d]
         bert_encoding = bert_encoding.view(utterance_ids.shape[0], utterance_ids.shape[1], bert_encoding.shape[-1])
@@ -55,7 +59,7 @@ class M_BERTBaseline(th.nn.Module):
         dialogue_utterance_encoding, _ = self.lstm_ctrl(bert_encoding)
 
         # [bs,
-        triggers_logits = self.triggers_clf(dialogue_utterance_encoding.view(-1, dialogue_utterance_encoding.shape[-1]))
+        triggers_logits = self.triggers_clf(dialogue_utterance_encoding.reshape(-1, dialogue_utterance_encoding.shape[-1]))
         triggers_logits = triggers_logits.view(utterance_ids.shape[0], utterance_ids.shape[1], triggers_logits.shape[-1])
 
         return {

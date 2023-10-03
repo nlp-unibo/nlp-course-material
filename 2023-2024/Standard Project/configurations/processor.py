@@ -48,7 +48,7 @@ class THDataProcessorConfig(Configuration):
                    type_hint=int,
                    description='Number of processes to use for data loading.')
         config.add(name='batch_size',
-                   value=8,
+                   value=4,
                    type_hint=int,
                    is_required=True,
                    description='Batch size for aggregating samples.')

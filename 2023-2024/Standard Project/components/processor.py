@@ -110,7 +110,7 @@ class THDataProcessor(Processor):
         for input_x, input_y in input_batch:
             utterance_ids.extend([th.tensor(seq, dtype=th.int32) for seq in input_x[0]])
             utterance_mask.extend([th.tensor(seq, dtype=th.int32) for seq in input_x[1]])
-            dialogue_id.append(input_x[1])
+            dialogue_id.append(int(input_x[2].split('utterance_')[1]))
             dialogue_utterance_indexes.append(len(input_x[0]))
 
             emotions.extend([th.tensor(input_y[0], dtype=th.long)])
@@ -127,8 +127,6 @@ class THDataProcessor(Processor):
 
         padded_utterance_ids = []
         padded_utterance_mask = []
-        padded_emotions = []
-        padded_triggers = []
 
         utterance_idx = 0
         maximum_utterances = max(dialogue_utterance_indexes)
@@ -139,12 +137,6 @@ class THDataProcessor(Processor):
                 # Utterance
                 padded_utterance_ids.append(utterance_ids[utterance_idx:utterance_idx + maximum_utterances])
                 padded_utterance_mask.append(utterance_mask[utterance_idx:utterance_idx + maximum_utterances])
-
-                # Emotions
-                padded_emotions.append(emotions[dialogue_idx])
-
-                # Triggers
-                padded_triggers.append(triggers[dialogue_idx])
             else:
                 # Utterances
                 pad_utterances = th.zeros((to_pad, utterance_ids[0].shape[0]), dtype=th.int32)
@@ -155,31 +147,15 @@ class THDataProcessor(Processor):
                 dialogue_utterances_mask = utterance_mask[utterance_idx:utterance_idx + dialogue_utterance_idx]
                 padded_utterance_mask.append(th.concat((dialogue_utterances_mask, pad_utterances), dim=0))
 
-                # Emotions
-                pad_emotions = th.zeros((to_pad, ), dtype=th.long)
-                dialogue_emotions = emotions[dialogue_idx]
-                padded_emotions.append(th.concat((dialogue_emotions, pad_emotions), dim=0))
-
-                # Triggers
-                pad_triggers = th.zeros((to_pad,), dtype=th.long)
-                dialogue_triggers = triggers[dialogue_idx]
-                padded_triggers.append(th.concat((dialogue_triggers, pad_triggers), dim=0))
-
             utterance_idx += dialogue_utterance_idx
 
         # [bs, # utterances, # token length]
         padded_utterance_ids = th.stack(padded_utterance_ids, dim=0)
         padded_utterance_mask = th.stack(padded_utterance_mask, dim=0)
 
-        # [bs, # utterances]
-        padded_emotions = th.stack(padded_emotions, dim=0)
-
-        # [bs, # utterances
-        padded_triggers = th.stack(padded_triggers, dim=0)
-
         assert padded_utterance_ids.shape == padded_utterance_mask.shape
-        assert padded_utterance_ids.shape[0] == padded_emotions.shape[0] == padded_triggers.shape[0]
-        assert padded_utterance_ids.shape[1] == padded_emotions.shape[1] == padded_triggers.shape[1]
+        assert padded_utterance_ids.shape[0] == emotions.shape[0] == triggers.shape[0]
+        assert padded_utterance_ids.shape[1] == emotions.shape[1] == triggers.shape[1]
 
         # Dialogue id
         dialogue_id = th.tensor(dialogue_id, dtype=th.int32)
@@ -193,8 +169,8 @@ class THDataProcessor(Processor):
 
         # output
         y = {
-            'emotions': padded_emotions.to(device),
-            'triggers': padded_triggers.to(device)
+            'emotions': emotions.to(device),
+            'triggers': triggers.to(device)
         }
 
         return x, y
@@ -241,8 +217,8 @@ class THClassifierProcessor(Processor):
             is_training_data: bool = False
     ) -> Any:
         return {
-            'emotion': th.argmax(data['emotion'], dim=-1).detach().cpu().numpy(),
-            'triggers': th.argmax(data['triggers'], dim=-1).detach().cpu().numpy()
+            'emotions': th.argmax(data['emotions'], dim=-1),
+            'triggers': th.argmax(data['triggers'], dim=-1)
         }
 
 
