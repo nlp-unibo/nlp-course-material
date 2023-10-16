@@ -7,7 +7,7 @@ if __name__ == '__main__':
                    registrations_to_file=False)
 
     result = routine_train(name='routine',
-                           tags={'task3'},
+                           tags={'dummy', 'model.baseline', 'model.dummy', 'model.strategy=most_frequent', 'task3'},
                            namespace='sp',
-                           serialize=True,
+                           serialize=False,
                            run_name='test')

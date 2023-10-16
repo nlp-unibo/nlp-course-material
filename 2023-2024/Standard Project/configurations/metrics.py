@@ -1,10 +1,47 @@
 from sklearn.metrics import f1_score
 
 from cinnamon_core.core.registry import Registry, register, RegistrationKey
-from cinnamon_generic.components.metrics import LambdaMetric, MetricPipeline
+from cinnamon_generic.components.metrics import MetricPipeline
 from cinnamon_generic.configurations.metrics import LambdaMetricConfig
 from cinnamon_generic.configurations.pipeline import PipelineConfig
-from components.metrics import SequenceF1Metric
+from components.metrics import SequenceF1Metric, SequenceUnrolledF1Metric, BaselineSequenceF1Metric, BaselineSequenceUnrolledF1Metric
+
+
+class SequenceUnrolledF1MetricConfig(LambdaMetricConfig):
+
+    @classmethod
+    def get_default(
+            cls
+    ):
+        config = super().get_default()
+        config.method = f1_score
+        config.method_args = {'average': 'macro'}
+
+        config.add(name='output_key',
+                   is_required=True,
+                   description='Predictions and ground-truth key name.',
+                   allowed_range=lambda value: value in ['emotions', 'triggers'])
+
+        return config
+
+    @classmethod
+    def get_emotion_config(
+            cls
+    ):
+        config = cls.get_default()
+        config.name = 'unrl_emotion_F1'
+        config.output_key = 'emotions'
+        return config
+
+    @classmethod
+    def get_triggers_config(
+            cls
+    ):
+        config = cls.get_default()
+        config.name = 'unrl_triggers_F1'
+        config.output_key = 'triggers'
+        config.method_args = {'average': 'binary'}
+        return config
 
 
 class SequenceF1MetricConfig(LambdaMetricConfig):
@@ -40,6 +77,7 @@ class SequenceF1MetricConfig(LambdaMetricConfig):
         config = cls.get_default()
         config.name = 'triggers_F1'
         config.output_key = 'triggers'
+        config.method_args = {'average': 'binary'}
         return config
 
 
@@ -59,19 +97,86 @@ def register_metrics_configurations():
                           tags={'triggers_f1'},
                           namespace='sp')
 
+    Registry.add_and_bind(config_class=SequenceF1MetricConfig,
+                          config_constructor=SequenceF1MetricConfig.get_emotion_config,
+                          component_class=BaselineSequenceF1Metric,
+                          name='metrics',
+                          tags={'emotions_f1', 'baseline'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=SequenceF1MetricConfig,
+                          config_constructor=SequenceF1MetricConfig.get_triggers_config,
+                          component_class=BaselineSequenceF1Metric,
+                          name='metrics',
+                          tags={'triggers_f1', 'baseline'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=SequenceUnrolledF1MetricConfig,
+                          config_constructor=SequenceUnrolledF1MetricConfig.get_emotion_config,
+                          component_class=SequenceUnrolledF1Metric,
+                          name='metrics',
+                          tags={'emotions_f1', 'unrolled'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=SequenceUnrolledF1MetricConfig,
+                          config_constructor=SequenceUnrolledF1MetricConfig.get_triggers_config,
+                          component_class=SequenceUnrolledF1Metric,
+                          name='metrics',
+                          tags={'triggers_f1', 'unrolled'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=SequenceUnrolledF1MetricConfig,
+                          config_constructor=SequenceUnrolledF1MetricConfig.get_emotion_config,
+                          component_class=BaselineSequenceUnrolledF1Metric,
+                          name='metrics',
+                          tags={'emotions_f1', 'unrolled', 'baseline'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=SequenceUnrolledF1MetricConfig,
+                          config_constructor=SequenceUnrolledF1MetricConfig.get_triggers_config,
+                          component_class=BaselineSequenceUnrolledF1Metric,
+                          name='metrics',
+                          tags={'triggers_f1', 'unrolled', 'baseline'},
+                          namespace='sp')
+
     Registry.add_and_bind(config_class=PipelineConfig,
                           config_constructor=PipelineConfig.from_keys,
                           config_kwargs={
                               'keys': [
                                   RegistrationKey(name='metrics', tags={'emotions_f1'}, namespace='sp'),
                                   RegistrationKey(name='metrics', tags={'triggers_f1'}, namespace='sp'),
+                                  RegistrationKey(name='metrics', tags={'emotions_f1', 'unrolled'}, namespace='sp'),
+                                  RegistrationKey(name='metrics', tags={'triggers_f1', 'unrolled'}, namespace='sp'),
                               ],
                               'names': [
                                   'emotions_f1',
                                   'triggers_f1',
+                                  'unrl_emotions_f1',
+                                  'unrl_triggers_f1'
                               ]
                           },
                           component_class=MetricPipeline,
                           name='metrics',
                           tags={'emotions_f1', 'triggers_f1'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=PipelineConfig,
+                          config_constructor=PipelineConfig.from_keys,
+                          config_kwargs={
+                              'keys': [
+                                  RegistrationKey(name='metrics', tags={'emotions_f1', 'baseline'}, namespace='sp'),
+                                  RegistrationKey(name='metrics', tags={'triggers_f1', 'baseline'}, namespace='sp'),
+                                  RegistrationKey(name='metrics', tags={'emotions_f1', 'unrolled', 'baseline'}, namespace='sp'),
+                                  RegistrationKey(name='metrics', tags={'triggers_f1', 'unrolled', 'baseline'}, namespace='sp'),
+                              ],
+                              'names': [
+                                  'emotions_f1',
+                                  'triggers_f1',
+                                  'unrl_emotions_f1',
+                                  'unrl_triggers_f1'
+                              ]
+                          },
+                          component_class=MetricPipeline,
+                          name='metrics',
+                          tags={'emotions_f1', 'triggers_f1', 'baseline'},
                           namespace='sp')

@@ -40,7 +40,7 @@ class Task3Loader(DataLoader):
         val_df = data[train_size:train_size + val_size]
         test_df = data[train_size + val_size:]
 
-        return train_df, val_df, test_df
+        return train_df[:20], val_df[:10], test_df[:10]
 
     def parse(
             self,

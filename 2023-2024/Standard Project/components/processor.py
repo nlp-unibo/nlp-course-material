@@ -84,6 +84,8 @@ class BERTTokenizer(TokenizerProcessor):
             data: FieldDict,
             tokenize: bool = True,
             remove_special_tokens: bool = False):
+        data.add(name='pad_token_id',
+                 value=self.tokenizer.pad_token_id)
         data.add(name='utterance_ids',
                  value=[])
         data.add(name='utterance_mask',
@@ -98,12 +100,35 @@ class BERTTokenizer(TokenizerProcessor):
         return data
 
 
+class DummyDataProcessor(Processor):
+
+    def process(
+            self,
+            data: FieldDict,
+            is_training_data: bool = False
+    ) -> FieldDict:
+        return_dict = FieldDict()
+
+        return_dict.add(name='X',
+                        value=[dialogue_id
+                               for seq, dialogue_id in zip(data.utterances, data.dialogue_id)
+                               for _ in range(len(seq))])
+        return_dict.add(name='y',
+                        value={
+                            'emotions': [item for seq in data.emotions for item in seq],
+                            'triggers': [item for seq in data.triggers for item in seq]
+                        })
+
+        return return_dict
+
+
 class THDataProcessor(Processor):
 
     def batch_data(
             self,
             input_batch,
-            device
+            device,
+            pad_token_id
     ):
         utterance_ids, utterance_mask, dialogue_id, emotions, triggers = [], [], [], [], []
         dialogue_utterance_indexes = []
@@ -117,8 +142,7 @@ class THDataProcessor(Processor):
             triggers.extend([th.tensor(input_y[1], dtype=th.long)])
 
         # Utterances, Emotions, Triggers
-        # TODO: make sure the padding_value equals tokenizer.pad_token_id
-        utterance_ids = pad_sequence(utterance_ids, batch_first=True, padding_value=0)
+        utterance_ids = pad_sequence(utterance_ids, batch_first=True, padding_value=pad_token_id)
         utterance_mask = pad_sequence(utterance_mask, batch_first=True, padding_value=0)
 
         # make sure to replace the padding_value to a valid one in model.batch_loss()
@@ -199,7 +223,9 @@ class THDataProcessor(Processor):
                              shuffle=is_training_data,
                              batch_size=self.batch_size,
                              num_workers=self.num_workers,
-                             collate_fn=partial(self.batch_data, device=device))
+                             collate_fn=partial(self.batch_data,
+                                                device=device,
+                                                pad_token_id=data.pad_token_id))
 
         steps = int(np.ceil(len(data.utterance_ids) / self.batch_size))
 

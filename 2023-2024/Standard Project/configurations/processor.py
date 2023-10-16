@@ -6,7 +6,7 @@ from cinnamon_generic.components.processor import ProcessorPipeline
 from cinnamon_generic.configurations.pipeline import OrderedPipelineConfig
 from cinnamon_generic.nlp.configurations.processor import TokenizerProcessorConfig
 from components.processor import BERTTokenizer, EmotionProcessor, THClassifierProcessor, THDataProcessor, \
-    RoutineStepsProcessor
+    RoutineStepsProcessor, DummyDataProcessor
 
 
 class BERTTokenizerConfig(TokenizerProcessorConfig):
@@ -78,6 +78,12 @@ def register_processors():
                           tags={'th', 'data'},
                           namespace='sp')
 
+    Registry.add_and_bind(config_class=Configuration,
+                          component_class=DummyDataProcessor,
+                          name='processor',
+                          tags={'dummy', 'data'},
+                          namespace='sp')
+
     # Model
 
     Registry.add_and_bind(config_class=OrderedPipelineConfig,
@@ -109,6 +115,27 @@ def register_processors():
                           component_class=THClassifierProcessor,
                           name='processor',
                           tags={'classifier', 'th'},
+                          namespace='sp')
+
+    Registry.add_and_bind(config_class=OrderedPipelineConfig,
+                          component_class=ProcessorPipeline,
+                          config_constructor=OrderedPipelineConfig.from_keys,
+                          config_kwargs={
+                              'keys': [
+                                  RegistrationKey(name='processor',
+                                                  tags={'emotion'},
+                                                  namespace='sp'),
+                                  RegistrationKey(name='processor',
+                                                  tags={'dummy', 'data'},
+                                                  namespace='sp')
+                              ],
+                              'names': [
+                                  'emotion_processor',
+                                  'dummy_processor'
+                              ]
+                          },
+                          name='processor',
+                          tags={'dummy', 'emotion'},
                           namespace='sp')
 
     # Routine

@@ -10,15 +10,17 @@ class M_BERTBaseline(th.nn.Module):
             bert_config,
             lstm_weights,
             emotion_classes,
+            freeze_bert=True
     ):
         super().__init__()
 
         self.bert = BertModel.from_pretrained(pretrained_model_name_or_path=preloaded_model_name,
                                               config=bert_config)
 
-        for module in self.bert.modules():
-            for param in module.parameters():
-                param.requires_grad = False
+        if freeze_bert:
+            for module in self.bert.modules():
+                for param in module.parameters():
+                    param.requires_grad = False
 
         self.emotion_clf = th.nn.Linear(out_features=emotion_classes,
                                         in_features=bert_config.hidden_size)
