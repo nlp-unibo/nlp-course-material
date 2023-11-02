@@ -28,17 +28,50 @@ class BERTBaselineConfig(NetworkConfig):
                    description='Optimizer to use for network weights update')
         config.add(name='optimizer_args',
                    value={
-                       "lr": 5e-05,
+                       "lr": 2e-05,
                        "weight_decay": 1e-05
                    },
                    type_hint=Dict,
                    description="Arguments for creating the network optimizer")
         config.add(name='freeze_bert',
-                   is_required=True,
+                   value=False,
                    type_hint=bool,
-                   variants=[False, True],
                    description="If true, the BERT model weights are freezed.")
+        config.add(name='add_premise',
+                   value=False,
+                   type_hint=bool,
+                   description='If enabled, the premise text is added as feature for classification.')
+        config.add(name='add_stance',
+                   value=False,
+                   type_hint=bool,
+                   description='If enabled, the premise-to-conclusion stance is added as feature for classification.')
 
+        return config
+
+    @classmethod
+    def get_conclusion_config(
+            cls
+    ):
+        config = cls.get_default()
+        config.add_premise = False
+        config.add_stance = False
+        return config
+
+    @classmethod
+    def get_premise_config(
+            cls
+    ):
+        config = cls.get_default()
+        config.add_premise = True
+        return config
+
+    @classmethod
+    def get_premise_stance_config(
+            cls
+    ):
+        config = cls.get_default()
+        config.add_premise = True
+        config.add_stance = True
         return config
 
 
@@ -61,9 +94,24 @@ class DummyBaselineConfig(Configuration):
 @register
 def register_models():
     Registry.add_and_bind_variants(config_class=BERTBaselineConfig,
+                                   config_constructor=BERTBaselineConfig.get_conclusion_config,
                                    component_class=BERTBaseline,
                                    name='model',
-                                   tags={'bert', 'baseline'},
+                                   tags={'bert', 'conclusion'},
+                                   namespace='a2')
+
+    Registry.add_and_bind_variants(config_class=BERTBaselineConfig,
+                                   config_constructor=BERTBaselineConfig.get_premise_config,
+                                   component_class=BERTBaseline,
+                                   name='model',
+                                   tags={'bert', 'premise', 'conclusion'},
+                                   namespace='a2')
+
+    Registry.add_and_bind_variants(config_class=BERTBaselineConfig,
+                                   config_constructor=BERTBaselineConfig.get_premise_stance_config,
+                                   component_class=BERTBaseline,
+                                   name='model',
+                                   tags={'bert', 'premise', 'conclusion', 'stance'},
                                    namespace='a2')
 
     Registry.add_and_bind_variants(config_class=DummyBaselineConfig,

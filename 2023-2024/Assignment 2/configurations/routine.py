@@ -48,9 +48,17 @@ class Task3RoutineConfig(RoutineConfig):
                                                tags={'bert', 'stance', 'th'},
                                                namespace='a2')
 
-        config.model = RegistrationKey(name='model',
-                                       tags={'bert', 'baseline'},
-                                       namespace='a2')
+        config.get('model').variants = [
+            RegistrationKey(name='model',
+                            tags={'bert', 'conclusion'},
+                            namespace='a2'),
+            RegistrationKey(name='model',
+                            tags={'bert', 'premise', 'conclusion'},
+                            namespace='a2'),
+            RegistrationKey(name='model',
+                            tags={'bert', 'premise', 'conclusion', 'stance'},
+                            namespace='a2')
+        ]
 
         config.post_processor = RegistrationKey(name='processor',
                                                 tags={'routine', 'step'},
@@ -77,6 +85,7 @@ class Task3RoutineConfig(RoutineConfig):
                                        namespace='a2')
 
         config.metrics = RegistrationKey(name='metrics',
+                                         tags={'baseline'},
                                          namespace='a2')
 
         return config

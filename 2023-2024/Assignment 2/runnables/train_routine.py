@@ -7,7 +7,7 @@ if __name__ == '__main__':
                    registrations_to_file=False)
 
     result = routine_train(name='routine',
-                           tags={'bert', 'model.baseline', 'model.bert', 'model.freeze_bert=False'},
+                           tags={'bert', 'model.bert', 'model.conclusion', 'model.premise', 'model.stance'},
                            namespace='a2',
                            serialize=False,
                            run_name='test')

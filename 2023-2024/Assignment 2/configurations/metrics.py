@@ -2,7 +2,7 @@ from sklearn.metrics import f1_score
 
 from cinnamon_core.core.registry import Registry, register
 from cinnamon_generic.configurations.metrics import LambdaMetricConfig
-from components.metrics import MultiLabelMetric
+from components.metrics import MultiLabelMetric, BaselineMultiLabelMetric
 
 
 class MultiLabelMetricConfig(LambdaMetricConfig):
@@ -25,4 +25,10 @@ def register_metrics_configurations():
     Registry.add_and_bind(config_class=MultiLabelMetricConfig,
                           component_class=MultiLabelMetric,
                           name='metrics',
+                          namespace='a2')
+
+    Registry.add_and_bind(config_class=MultiLabelMetricConfig,
+                          component_class=BaselineMultiLabelMetric,
+                          name='metrics',
+                          tags={'baseline'},
                           namespace='a2')

@@ -36,7 +36,9 @@ class BERTBaseline(THNetwork):
         self.model = M_BERTBaseline(label_names=label_names,
                                     bert_config=self.bert_config,
                                     preloaded_model_name=self.preloaded_model_name,
-                                    freeze_bert=self.freeze_bert).to('cuda')
+                                    freeze_bert=self.freeze_bert,
+                                    add_premise=self.add_premise,
+                                    add_stance=self.add_stance).to('cuda')
 
         self.optimizer = self.optimizer_class(**self.optimizer_args, params=self.model.parameters())
         self.ce = th.nn.CrossEntropyLoss().to('cuda')

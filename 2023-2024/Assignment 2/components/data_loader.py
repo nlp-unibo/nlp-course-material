@@ -1,11 +1,13 @@
 from pathlib import Path
 from typing import Tuple, Optional, Any, Iterable
 
+import numpy as np
 import pandas as pd
 
 from cinnamon_core.core.data import FieldDict
 from cinnamon_generic.components.data_loader import DataLoader
 from cinnamon_generic.components.file_manager import FileManager
+from functools import reduce
 
 
 class HumanValueLoader(DataLoader):
@@ -21,6 +23,12 @@ class HumanValueLoader(DataLoader):
 
         arguments_df = pd.read_csv(split_arguments, sep='\t')
         labels_df = pd.read_csv(split_labels, sep='\t')
+
+        if self.merge_labels:
+            for macro_label, mapped_labels in self.label_map.items():
+                labels_df[macro_label] = reduce(lambda a, b: np.logical_or(a, b), [labels_df[m_label].values for m_label in mapped_labels]).astype(int)
+
+            labels_df = labels_df[['Argument ID'] + list(self.label_map.keys())]
 
         return arguments_df.merge(labels_df, on='Argument ID')
 

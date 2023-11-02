@@ -37,6 +37,44 @@ class HumanValueLoaderConfig(DataLoaderConfig):
                    type_hint=str,
                    description='Name of the .tsv file storing label_names data',
                    is_required=True)
+        config.add(name='merge_labels',
+                   value=True,
+                   type_hint=bool,
+                   description='Whether to use macro categories or not.')
+        config.add(name='label_map',
+                   value={
+                       'Openess to change': [
+                           'Self-direction: thought',
+                           'Self-direction: action',
+                           'Stimulation',
+                           'Hedonism'
+                       ],
+                       'Self-enhancement': [
+                           'Hedonism',
+                           'Achievement',
+                           'Power: dominance',
+                           'Power: resources',
+                           'Face'
+                       ],
+                       'Conversation': [
+                           'Face',
+                           'Security: personal',
+                           'Security: societal',
+                           'Tradition',
+                           'Conformity: rules',
+                           'Conformity: interpersonal',
+                           'Humility'
+                       ],
+                       'Self-transcendence': [
+                           'Humility',
+                           'Benevolence: caring',
+                           'Benevolence: dependability',
+                           'Universalism: concern',
+                           'Universalism: nature',
+                           'Universalism: tolerance',
+                           'Universalism: objectivity'
+                       ]
+                   })
 
         return config
 
