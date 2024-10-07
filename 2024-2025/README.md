@@ -12,6 +12,4 @@ Sexism detection with LLM prompting.
 
 
 ## Contact
-
-[Federico Ruggeri](federico.ruggeri6@unibo.it)
-[Eleonora Mancini](e.mancini@unibo.it)
+[Federico Ruggeri](mailto:federico.ruggeri6@unibo.it?subject=Subject%20Here&body=Body%20Here) | [Eleonora Mancini](mailto:e.mancini@unibo.it?subject=Subject%20Here&body=Body%20Here)
