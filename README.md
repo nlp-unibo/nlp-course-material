@@ -5,6 +5,7 @@ The official repository for the NLP Course held by Prof. Torroni at UniBO.
 ## Contact
 
 [Federico Ruggeri](federico.ruggeri6@unibo.it)
+
 [Eleonora Mancini](e.mancini@unibo.it)
 
 ## Reference
