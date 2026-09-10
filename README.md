@@ -48,10 +48,10 @@ The LaTeX template for the report is in `report_LaTeX_template.zip`.
 
 ## Contact
 
-[Federico Ruggeri](federico.ruggeri6@unibo.it)
+[Federico Ruggeri](mailto:federico.ruggeri6@unibo.it)
 
-[Giulia Grundler](giulia.grundler2@unibo.it)
+[Giulia Grundler](mailto:giulia.grundler2@unibo.it)
 
 ## Reference
 
-Please check the official UniBO course [website](https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2024/446602).
+Please check the official UniBO course [website](https://www.unibo.it/it/studiare/dottorati-master-specializzazioni-e-altra-formazione/insegnamenti/insegnamento/2025/446602).
