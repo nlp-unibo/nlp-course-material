@@ -7435,7 +7435,7 @@ main {
 <main>
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=196f2061">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1d921b60">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7444,8 +7444,16 @@ main {
 <h1 id="Assignment-1">Assignment 1<a class="anchor-link" href="#Assignment-1">¶</a></h1><p><strong>Credits</strong>: Federico Ruggeri, Giulia Grundler, Paolo Torroni</p>
 <p><strong>Keywords</strong>: Unfair Clause Detection, Multi-label Classification, RNNs, Transformers, Huggingface</p>
 <style>
-/* A slide taller than the deck scrolls instead of hiding its overflow.
-   700px is the slide height nbconvert passes to Reveal.initialize. */
+/* Long code lines wrap instead of running off the right edge of the slide,
+   and a slide taller than the 700px deck scrolls instead of being cut. */
+.reveal .jp-RenderedHTMLCommon pre,
+.reveal .highlight pre,
+.reveal pre, .reveal pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+  max-width: 100%;
+}
 .reveal .slides section:not(.stack) {
   max-height: 700px;
   overflow-y: auto;
@@ -7456,7 +7464,7 @@ main {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89ed3c52">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b2eeb84e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7472,7 +7480,7 @@ main {
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d257e34f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9f939d84">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7487,7 +7495,7 @@ clause at a time and flag which kinds of unfairness it carries.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5f60e3dc">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1428543d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7534,7 +7542,7 @@ clause at a time and flag which kinds of unfairness it carries.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7e9e643e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=12f80f37">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7550,7 +7558,7 @@ clause at a time and flag which kinds of unfairness it carries.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1eaeff97">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2fb046f9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7564,7 +7572,7 @@ modification shall be effective immediately upon its posting on the website .</e
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5c2dbded">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0f15e7e1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7578,7 +7586,7 @@ five hundred dollars -rrb- .</em>''</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3db57c74">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e6c82136">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7590,7 +7598,7 @@ the service at our discretion .</em>''</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d7a1116">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fa1e70bd">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7607,7 +7615,7 @@ notice , at any time , and without liability to you .</em>'' $\rightarrow$ <code
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c312972">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7add80c3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7621,7 +7629,7 @@ unfairness categories above.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ebb368fa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=38575461">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7638,7 +7646,7 @@ other almost verbatim, so a clause-level split would leak the test set into trai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3c86a5a6">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=29e2dc5d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7695,7 +7703,7 @@ other almost verbatim, so a clause-level split would leak the test set into trai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dbef41b7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90e8fea4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7749,7 +7757,7 @@ this assignment</strong> and can be dropped.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b6b2fab3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=652b53f4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7769,7 +7777,7 @@ with 0 / 1 / 2+ labels.</li>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c20d8d3d">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=60a0f688">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7784,7 +7792,7 @@ with 0 / 1 / 2+ labels.</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f1e833b3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=936a0507">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7803,7 +7811,7 @@ with 0 / 1 / 2+ labels.</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af5311e8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6010dd3f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7817,7 +7825,7 @@ an aggressive stopword list can hurt you.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04f6e577">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f235bb5c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7833,7 +7841,7 @@ an aggressive stopword list can hurt you.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1bbd3877">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=04fce1b2">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7849,7 +7857,7 @@ an aggressive stopword list can hurt you.</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3e11a7a3">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b195348a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7860,7 +7868,7 @@ an aggressive stopword list can hurt you.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d0f89fd2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=325a3080">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7874,7 +7882,7 @@ an aggressive stopword list can hurt you.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2be8de32">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d3b6c9c3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7892,7 +7900,7 @@ Report it.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ddf0197a">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f7b0b440">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7913,7 +7921,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=01f18450">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=122ae00c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7924,7 +7932,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9741634f">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9972e27d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7941,7 +7949,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=963083d9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=de169ef1">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7952,7 +7960,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=87f1ef86">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2fcd5afa">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7966,7 +7974,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0107e007">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2403c2db">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7982,7 +7990,7 @@ otherwise).</li>
 </div>
 </div>
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=63372ac2">
+</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=365f4868">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8001,7 +8009,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b11f3933">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ef61733f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8012,7 +8020,7 @@ otherwise).</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dfcb1139">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c84dfe72">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8032,7 +8040,7 @@ clauses and <code>LTD</code> has 504.</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9c909c39">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cd694fb9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8045,7 +8053,7 @@ main metric.</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3a79d6b2">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c0d61d79">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8057,7 +8065,7 @@ main metric.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=256bc4e0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=502e0310">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8080,7 +8088,7 @@ Use the <code>Trainer</code> to train the model on your training data.</p>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a3383313">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ba980a96">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8092,7 +8100,7 @@ Use the <code>Trainer</code> to train the model on your training data.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=decc28ea">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5d99cd97">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8112,7 +8120,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=713e5832">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ecfbb860">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8124,7 +8132,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53a8e7e5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=58797170">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8138,7 +8146,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=63362dbd">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=554caef5">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8155,7 +8163,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a10ef047">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cb9b45d8">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8171,7 +8179,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=203f3f6e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f67007fc">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8188,7 +8196,7 @@ carrying multiple labels, and performance differences between the custom model a
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a39c0511">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=888751ef">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8204,7 +8212,7 @@ worth on this task.</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8540df05">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=74b0502a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8221,7 +8229,7 @@ the neighbouring clauses.</li>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=36e6d932">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6dfdbebe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8238,7 +8246,7 @@ Canadian, Australian, US and Japanese legislation), released in the public domai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e3666454">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=64b3a96a">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8252,7 +8260,7 @@ Canadian, Australian, US and Japanese legislation), released in the public domai
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=8e5a5b63">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=45ff6347">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8263,7 +8271,7 @@ Canadian, Australian, US and Japanese legislation), released in the public domai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7d14878c">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ebb57c3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8275,7 +8283,7 @@ Canadian, Australian, US and Japanese legislation), released in the public domai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1f20150">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d14b7c9d">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8287,7 +8295,7 @@ Canadian, Australian, US and Japanese legislation), released in the public domai
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=03254ebb">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0d29ba45">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8299,7 +8307,7 @@ the five columns into a single categorical label, and do <strong>not</strong> dr
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=56cb0407">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=99b8304c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8310,7 +8318,7 @@ the five columns into a single categorical label, and do <strong>not</strong> dr
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5962fdb4">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e2ed5c48">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8322,7 +8330,7 @@ the five columns into a single categorical label, and do <strong>not</strong> dr
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=31c9a019">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5527c282">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8334,7 +8342,7 @@ etc...)</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b010aa2e">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6adab071">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8346,7 +8354,7 @@ etc...)</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=0814ada9">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5a78bab4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8364,7 +8372,7 @@ higher one.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=32a748ee">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53505a67">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8376,7 +8384,7 @@ threshold you used.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e70b6b27">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c1c6fa31">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8391,7 +8399,7 @@ threshold you used.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7c9497f5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e291a9b">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8407,7 +8415,7 @@ threshold you used.</p>
 </div>
 </div>
 </div></section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=792c06a0">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=7a3ac76c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8424,7 +8432,7 @@ Artificial Intelligence and Law.</li>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ba135f5">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9cf4e6fe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
